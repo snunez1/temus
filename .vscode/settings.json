@@ -1,0 +1,23 @@
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": "./.github/prompts/claude-context.prompt.md"
+    },
+    {
+      "file": "./.github/prompts/case-requirements.prompt.md"
+    },
+    {
+      "file": "./.github/prompts/wind-power-domain.prompt.md"
+    }
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commits format: type(scope): description. Types: feat, fix, docs, test, refactor, style. Be specific about wind forecasting changes and reference relevant wind farms (wf1-wf7) when applicable."
+    }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [
+    {
+      "text": "Generate comprehensive tests for wind power forecasting models including: time series validation, cross-validation with temporal splits, edge cases for extreme weather, and performance regression tests. Follow pytest conventions."
+    }
+  ]
+}
