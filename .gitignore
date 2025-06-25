@@ -1,11 +1,13 @@
 # Ignore data files and outputs
 /data/raw/ams2014_solar/*
 /data/processed/*
-/data/*.zip
+/data/raw/**/*.zip
 !data/README.md
 /notebooks/*.ipynb_checkpoints/
+/notebooks/outputs/*
 __pycache__/
 *.pyc
 .env
 .DS_Store
+/scripts/*
 

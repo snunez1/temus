@@ -16,8 +16,14 @@ In the case of the world_sustainability dataset, you will need to refer to the d
 # Style Guide
 Write narrative text in the style of Mckinsey.  Do not make excessive use of adjectives like 'advanced', 'innovative', 'cutting-edge', 'crucial', etc.
 
-# code
+# Python Code Style
 When rendering plots, ensure that they are presented in a clear and professional manner, adhering to the Mckinsey style guide. Ensure they render properly in Jupyter notebooks and are suitable for presentation.
+When saving files use parquet format for data files and PNG format for plots, as these formats are widely used and compatible with various tools and platforms.
+In pandas when using the groupby function  explicitly specify observed=True (or observed=False if you need the old behavior) to avoid the warning and ensure consistent behavior across pandas versions
+Place intermediate data files in parquet format in the /data/intermediate directory, and final outputs in the /data/processed directory. 
+When summarizing and validating your decision to the user, print the contents to the chat.  Do not create a new notebook or cell.
+Data files that you create should be placed in the /data/processed directory, and any intermediate files should be placed in the /data/processed
+
 
 # Case Study 
 
