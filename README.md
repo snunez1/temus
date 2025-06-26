@@ -1,6 +1,6 @@
 # Temus Wind Power Forecasting - Temus Case Study
 
-A comprehensive machine learning solution for 48-hour ahead wind power forecasting using the GEF2012 dataset, demonstrating measurable environmental and economic impact.
+A machine learning solution for 48-hour ahead wind power forecasting using the GEF2012 dataset, demonstrating measurable environmental and economic impact.
 
 ## Project Overview
 
@@ -111,7 +111,7 @@ matplotlib, seaborn, plotly
 This project uses Claude-optimized prompts for consistent, high-quality analysis:
 
 - **Core Context**: Automatic loading of domain knowledge and requirements
-- **Workflow Guidance**: Phase-specific prompts via `@workspace` command
+- **Workflow Guidance**: Phase-specific prompts via `#file:` command
 - **Quality Assurance**: Built-in validation and best practices
 
 See `.github/prompts/README.md` for complete prompt system documentation.

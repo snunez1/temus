@@ -1,6 +1,6 @@
 # The Temus Workspace: A Domain-Specific Code Generation Framework
 
-This workspace represents a sophisticated prompt engineering architecture that goes beyond typical AI assistance patterns. It's essentially a **domain-specific code generation framework** designed to produce quality wind power forecasting solutions with minimal human intervention.
+This workspace implements a prompt engineering architecture that goes beyond typical AI assistance patterns. It's essentially a **domain-specific code generation framework** designed to produce wind power forecasting solutions with minimal human intervention.
 
 ## Framework Architecture
 
@@ -21,13 +21,13 @@ The framework operates on three distinct knowledge layers:
 └─────────────────────────────────────────┘
 ```
 
-**Foundation Layer** (`claude-assistant.prompt.md`, `requirements.prompt.md`):
+**Foundation Layer** (`claude-context.prompt.md`, `case-requirements.prompt.md`):
 - Establishes communication protocols
 - Defines code quality standards
 - Sets business communication style
 - Enforces McKinsey presentation standards
 
-**Domain Layer** (`wind-power-knowledge.prompt.md`):
+**Domain Layer** (`wind-power-domain.prompt.md`):
 - Encodes wind power physics (power curves, cut-in/cut-out speeds)
 - Captures industry-specific challenges (curtailment, grid balancing)
 - Provides economic context ($1-5M savings per 10% RMSE improvement)
@@ -40,10 +40,10 @@ The framework operates on three distinct knowledge layers:
 
 ### 2. Template-Based Code Generation
 
-Each phase prompt acts as a sophisticated code template with:
+Each phase prompt acts as a code template with:
 
 ```python
-# Example from eda-analysis.prompt.md
+# Example from eda-workflow.prompt.md
 def create_power_curve_analysis():
     """
     Template includes:
@@ -63,14 +63,13 @@ The framework implements a dependency graph between prompts:
 
 ```mermaid
 graph TD
-    A[claude-assistant.prompt.md] --> B[requirements.prompt.md]
-    B --> C[wind-power-knowledge.prompt.md]
-    C --> D[1-eda-analysis.prompt.md]
-    D --> E[2-feature-engineering.prompt.md]
-    E --> F[3-model-development.prompt.md]
-    F --> G[4-model-risk.prompt.md]
-    G --> H[5-mcp-deployment.prompt.md]
-    H --> I[6-presentation.prompt.md]
+    A[claude-context.prompt.md] --> B[case-requirements.prompt.md]
+    B --> C[wind-power-domain.prompt.md]
+    C --> D[eda-workflow.prompt.md]
+    D --> E[model-development.prompt.md]
+    E --> F[risk-management.prompt.md]
+    F --> G[mcp-service.prompt.md]
+    G --> H[presentation-outline.prompt.md]
 ```
 
 Each prompt builds on previous ones, maintaining consistency and avoiding duplication.
@@ -207,7 +206,7 @@ This framework represents a new paradigm in AI-assisted development:
 3. **Quality at Scale**: Maintaining consulting-grade standards across all outputs
 4. **Competitive Advantage**: Faster delivery with higher quality than traditional approaches
 
-The Temus workspace demonstrates how prompt engineering can evolve from simple instructions to comprehensive, domain-specific frameworks that encode entire methodologies, standards, and best practices. This approach is particularly powerful for specialized domains like renewable energy forecasting where technical accuracy, business context, and regulatory compliance must all be considered simultaneously.
+The Temus workspace demonstrates how prompt engineering can evolve from simple instructions to comprehensive, domain-specific frameworks that encode entire methodologies, standards, and best practices. This approach is particularly useful for specialized domains like renewable energy forecasting where technical accuracy, business context, and regulatory compliance must all be considered simultaneously.
 
 ## Framework Components
 
@@ -215,15 +214,14 @@ The Temus workspace demonstrates how prompt engineering can evolve from simple i
 
 | File | Purpose | Layer |
 |------|---------|-------|
-| `claude-assistant.prompt.md` | Communication style and standards | Foundation |
-| `requirements.prompt.md` | Technical requirements and constraints | Foundation |
-| `wind-power-knowledge.prompt.md` | Domain expertise encoding | Domain |
-| `1-eda-analysis.prompt.md` | Exploratory data analysis templates | Application |
-| `2-feature-engineering.prompt.md` | Feature engineering patterns | Application |
-| `3-model-development.prompt.md` | Machine learning implementations | Application |
-| `4-model-risk.prompt.md` | Risk management frameworks | Application |
-| `5-mcp-deployment.prompt.md` | Production deployment patterns | Application |
-| `6-presentation.prompt.md` | Business presentation generation | Application |
+| `claude-context.prompt.md` | Communication style and standards | Foundation |
+| `case-requirements.prompt.md` | Technical requirements and constraints | Foundation |
+| `wind-power-domain.prompt.md` | Domain expertise encoding | Domain |
+| `eda-workflow.prompt.md` | Exploratory data analysis templates | Application |
+| `model-development.prompt.md` | Machine learning implementations | Application |
+| `risk-management.prompt.md` | Risk management frameworks | Application |
+| `mcp-service.prompt.md` | Production deployment patterns | Application |
+| `presentation-outline.prompt.md` | Business presentation generation | Application |
 
 ### Supporting Infrastructure
 
@@ -233,4 +231,4 @@ The Temus workspace demonstrates how prompt engineering can evolve from simple i
 - **Testing Frameworks**: Domain-specific validation patterns
 - **Deployment Configurations**: Production-ready service definitions
 
-This framework represents a significant evolution in how domain expertise can be captured, encoded, and deployed through AI-assisted development tools.
+This framework represents an evolution in how domain expertise can be captured, encoded, and deployed through AI-assisted development tools.
