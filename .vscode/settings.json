@@ -19,5 +19,7 @@
     {
       "text": "Generate comprehensive tests for wind power forecasting models including: time series validation, cross-validation with temporal splits, edge cases for extreme weather, and performance regression tests. Follow pytest conventions."
     }
-  ]
+  ],
+  "chat.mcp.enabled": true,
+  "chat.mcp.discovery.enabled": true
 }

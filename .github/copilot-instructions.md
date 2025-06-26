@@ -14,7 +14,7 @@ When performing data analysis, the files named data-description.md in each data/
 In the case of the world_sustainability dataset, you will need to refer to the dataset's data-dictionary.csv file for details.
 
 # Style Guide
-Write narrative text in the style of Mckinsey.  Do not make excessive use of adjectives like 'advanced', 'innovative', 'cutting-edge', 'crucial', etc.
+Write narrative text in the style of Mckinsey.  Avoid use of adjectives like 'comprehensive', 'advanced', 'innovative', 'cutting-edge', 'crucial', etc.
 
 # Python Code Style
 When rendering plots, ensure that they are presented in a clear and professional manner, adhering to the Mckinsey style guide. Ensure they render properly in Jupyter notebooks and are suitable for presentation.

@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "windFarmAnalytics": {
+      "type": "stdio",
+      "command": "/workspaces/temus/mcp/start_server.sh",
+      "env": {
+        "PYTHONPATH": "/workspaces/temus"
+      }
+    }
+  }
+}
