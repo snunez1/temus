@@ -8,10 +8,35 @@ __pycache__/
 .pytest_cache/
 test_*.py
 debug_*.py
+*_test.py
 
 # Logs
 *.log
+*.out
 
 # Temporary files
 *_backup.py
 *_temp.py
+server_new.py
+start_server_new.sh
+
+# Development/debugging files
+validate_*.py
+verify_*.py
+final_*.py
+simple_*.py
+code_analysis.py
+demo_*.py
+
+# Documentation (moved to docs/)
+IMPLEMENTATION_SUMMARY.md
+PHASE1_COMPLETE.md
+TESTING_GUIDE.md
+design-choices.md
+tool-design.md
+tools-implementation.md
+phase-1-tool-implementation.md
+
+# Shell test scripts
+test_*.sh
+debug_*.sh
