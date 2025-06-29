@@ -1,7 +1,12 @@
 #!/bin/bash
-# Start script for Wind Farm Analytics MCP Server
-# This script is called by VS Code's MCP integration
+# Start the Wind Farm Analytics MCP Server
 
-cd /workspaces/temus
-export PYTHONPATH="/workspaces/temus:$PYTHONPATH"
-exec python3 /workspaces/temus/mcp/server.py
+echo "Starting Wind Farm Analytics MCP Server..."
+echo "Server: server.py (Wind Power Forecasting Analysis)"
+echo "Port: 8000"
+echo ""
+
+cd /workspaces/temus/mcp
+python3 server.py
+
+echo "Server stopped."

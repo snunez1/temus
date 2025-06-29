@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Testing
+.pytest_cache/
+test_*.py
+debug_*.py
+
+# Logs
+*.log
+
+# Temporary files
+*_backup.py
+*_temp.py
