@@ -1,0 +1,30 @@
+{
+  "data_sources": {
+    "temporal_features": 21,
+    "spatial_features": 0,
+    "physics_features": 0,
+    "derived_features": 0
+  },
+  "quality_validation": {
+    "zero_variance_features": 7,
+    "high_correlation_pairs": 11,
+    "missing_value_features": 1,
+    "feature_completeness": 99.99812773411871,
+    "numeric_features": 65,
+    "categorical_features": 1
+  },
+  "downstream_impact": {
+    "model_input_ready": true,
+    "feature_count_change": "44 -> 66",
+    "memory_optimization": "56.4MB -> 69.7MB",
+    "processing_efficiency": "Processed 130,291 rows"
+  },
+  "summary": {
+    "total_features": 66,
+    "data_points": 130291,
+    "quality_score": 99.99812773411871,
+    "new_features_created": 34,
+    "reused_features": 35
+  },
+  "timestamp": "2025-07-01T09:40:50.350113"
+}

@@ -32,9 +32,10 @@ Economic_Value = Error_Reduction_MWh × $50_imbalance_cost
 ```
 
 ## Find in Notebooks
-- **Notebook 12_business_impact.ipynb**: Primary business calculations
-- **Notebook 10_model_evaluation.ipynb**: Performance improvements
-- **Notebook 02_wind_physics_analysis.ipynb**: Capacity factors for scaling
+- **Notebook 02_wind_physics_analysis.ipynb**: Initial business impact calculations and capacity factors
+- **Notebook 12_business_impact.ipynb**: Comprehensive business analysis and presentation materials
+- **Notebook 10_model_evaluation.ipynb**: Performance improvements for business case
+- Look for sections on "BUSINESS IMPACT ANALYSIS" and "FORECAST IMPROVEMENT VALUE"
 
 ## Analysis Patterns to Look For
 - `co2_displacement` calculations

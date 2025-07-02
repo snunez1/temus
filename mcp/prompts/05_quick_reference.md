@@ -5,9 +5,9 @@ For general queries and overview questions:
 ## Common Query Types and Locations
 
 ### Performance Overview
-- **"What's the best model?"** → notebook 10, model comparison section
-- **"How accurate are forecasts?"** → notebook 10, RMSE results
-- **"Improvement over baseline?"** → notebook 06 vs 10 comparison
+- **"What's the best model?"** → notebooks 07-10, model comparison sections
+- **"How accurate are forecasts?"** → notebooks 06-10, RMSE results
+- **"Improvement over baseline?"** → notebook 06 baseline establishment, then 07-10 comparisons
 
 ### Physical Characteristics  
 - **"Capacity factors by farm?"** → notebook 02, summary statistics
@@ -15,8 +15,8 @@ For general queries and overview questions:
 - **"Wind resource quality?"** → notebook 02, capacity factor analysis
 
 ### Business Value
-- **"CO2 impact?"** → notebook 12, environmental calculations
-- **"Economic benefits?"** → notebook 12, cost-benefit analysis
+- **"CO2 impact?"** → notebook 02 initial calculations, notebook 12 comprehensive analysis
+- **"Economic benefits?"** → notebook 02 forecast improvement value, notebook 12 detailed cost-benefit
 - **"Grid integration value?"** → notebook 12, penetration analysis
 
 ### Data Quality
@@ -25,8 +25,8 @@ For general queries and overview questions:
 - **"Temporal coverage?"** → notebook 01, time series overview
 
 ## Key Project Constants
-- **Training Period**: July 2009 - December 2010 (18 months)
-- **Wind Farms**: 7 farms (wf1-wf7)
+- **Training Period**: July 2009 - June 2012 (Training: 2009-2010, Test: 2011-2012)
+- **Wind Farms**: 7 farms (wp1-wp7, also referenced as wf1-wf7)
 - **Forecast Horizons**: 1-48 hours ahead
 - **Update Frequency**: Every 6 hours
 - **Target Improvement**: >30% over persistence baseline

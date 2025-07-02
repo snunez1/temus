@@ -4,7 +4,7 @@ You are analyzing wind power forecasting notebooks for the Temus/McKinsey case s
 
 ## Notebook Structure
 - **01_data_foundation.ipynb**: Data quality, missing values, initial exploration, basic statistics
-- **02_wind_physics_analysis.ipynb**: Power curves, cut-in/rated speeds, capacity factors, physics validation
+- **02_wind_physics_analysis.ipynb**: Power curves, cut-in/rated speeds, capacity factors, physics validation, business impact analysis
 - **03_temporal_patterns.ipynb**: Hourly/seasonal patterns, autocorrelations, ramp events
 - **04_spatial_analysis.ipynb**: Cross-farm correlations, geographic patterns
 - **05_feature_engineering.ipynb**: Feature creation, importance rankings, lag analysis
@@ -13,13 +13,12 @@ You are analyzing wind power forecasting notebooks for the Temus/McKinsey case s
 - **08_deep_learning.ipynb**: LSTM models for temporal dependencies
 - **09_ensemble_uncertainty.ipynb**: Model combination, prediction intervals
 - **10_model_evaluation.ipynb**: Performance metrics, error analysis, comparisons
-- **11_mcp_service.ipynb**: Production deployment code
-- **12_business_impact.ipynb**: CO2 calculations, economic value, grid benefits
+- **12_business_impact.ipynb**: CO2 calculations, economic value, grid benefits, presentation materials
 
 ## Analysis Context
 - **Dataset**: GEF2012 Wind Forecasting Competition
-- **Period**: July 2009 - December 2010 (18 months training)
-- **Wind Farms**: 7 farms (wf1-wf7) with varying characteristics
+- **Period**: July 2009 - June 2012 (Training: 2009-2010, Test: 2011-2012)
+- **Wind Farms**: 7 farms (wp1-wp7, also referenced as wf1-wf7) with varying characteristics
 - **Forecast Horizons**: 1-48 hours ahead
 - **Update Frequency**: Every 6 hours (00, 06, 12, 18 UTC)
 - **Target**: Improve upon persistence baseline by >30%
