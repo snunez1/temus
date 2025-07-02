@@ -303,46 +303,111 @@ def save_figure(
         return False
 
 
-def create_and_save_figure(save_filename: str, **save_kwargs):
+def create_and_save_figure(filename=None, figsize=(12, 8), dpi=300, 
+                                   format='png', save_to_outputs=True, show_figure=True):
     """
-    Enhanced decorator that both creates figures with consistent styling and saves them.
+    Enhanced decorator that addresses scope issues and provides more flexibility.
+    
+    This improved version:
+    - Requires all data to be passed as explicit parameters
+    - Provides configurable saving and display options
+    - Includes robust error handling
+    - Avoids closure/scope issues that plagued the original decorator
     
     Parameters:
     -----------
-    save_filename : str
-        Name for the saved figure file
-    **save_kwargs
-        Additional arguments passed to save_figure()
-    
+    filename : str, optional
+        Custom filename (auto-generated from function name if None)
+    figsize : tuple, default=(12, 8)
+        Figure size tuple (width, height)
+    dpi : int, default=300
+        Resolution for saved figures
+    format : str, default='png'
+        File format ('png', 'pdf', 'svg')
+    save_to_outputs : bool, default=True
+        Whether to save figure to outputs directory
+    show_figure : bool, default=True
+        Whether to display figure in notebook
+        
+    Returns:
+    --------
+    function
+        Decorated function that handles figure creation, saving, and display
+        
     Examples:
     ---------
-    @create_and_save_figure('hourly_patterns')
-    def plot_hourly_data(data, ax=None):
+    # Basic usage with automatic filename
+    @create_and_save_figure()
+    def plot_analysis(data, results, ax=None):
         ax.plot(data.index, data.values)
-        ax.set_title('Hourly Patterns')
         return ax
+        
+    # Custom configuration
+    @create_and_save_figure(filename='custom_plot', figsize=(16, 10), dpi=150)
+    def plot_detailed_analysis(data, parameters, ax=None):
+        # All required data passed as parameters - no scope issues
+        return create_complex_plot(data, parameters, ax)
     """
     def decorator(func):
         def wrapper(*args, **kwargs):
             import matplotlib.pyplot as plt
+            from pathlib import Path
             
-            # Create figure with consistent styling
-            fig, ax = plt.subplots(figsize=(12, 8))
+            # Determine filename
+            save_filename = filename or func.__name__.replace('plot_', '').replace('_', '_')
             
-            # Call the plotting function
-            result = func(*args, ax=ax, **kwargs)
+            # Extract data parameter if provided (fix for DataFrame ambiguous truth value)
+            data = kwargs.get('data')
+            if data is None and args:
+                data = args[0]
             
-            # Apply consistent styling
-            ax.grid(True, alpha=0.3)
-            if not ax.get_title():
-                ax.set_title(func.__name__.replace('_', ' ').title(), 
-                           fontsize=14, fontweight='bold')
-            plt.tight_layout()
+            # Create figure if not provided in kwargs
+            if 'ax' not in kwargs or kwargs['ax'] is None:
+                fig, ax = plt.subplots(figsize=figsize)
+                kwargs['ax'] = ax
+            else:
+                ax = kwargs['ax']
+                fig = ax.figure
             
-            # Save the figure
-            save_figure(fig, save_filename, **save_kwargs)
-            
-            return fig, ax
+            try:
+                # Call the plotting function with all required data passed as parameters
+                result = func(*args, **kwargs)
+                
+                # Apply consistent styling
+                if not ax.get_title():
+                    ax.set_title(func.__name__.replace('_', ' ').title(), 
+                               fontsize=14, fontweight='bold')
+                
+                # Save figure if requested
+                if save_to_outputs and save_filename:
+                    # Get project paths and ensure figures directory exists
+                    paths = get_project_paths()
+                    figures_dir = paths['figures']
+                    figures_dir.mkdir(parents=True, exist_ok=True)
+                    
+                    # Save with specified format and DPI
+                    save_path = figures_dir / f"{save_filename}.{format}"
+                    fig.savefig(save_path, dpi=dpi, bbox_inches='tight', 
+                               facecolor='white', edgecolor='none')
+                    logger.info(f"Figure saved: {save_path}")
+                
+                # Display figure if requested
+                if show_figure:
+                    plt.tight_layout()
+                    plt.show()
+                
+                return result
+                
+            except Exception as e:
+                logger.error(f"Error in plotting function {func.__name__}: {e}")
+                # Show empty plot with error message
+                ax.text(0.5, 0.5, f'Error: {str(e)}', ha='center', va='center', 
+                       transform=ax.transAxes, fontsize=12, color='red')
+                ax.set_title(f'Error in {func.__name__}', fontsize=14, color='red')
+                if show_figure:
+                    plt.show()
+                return None
+                
         return wrapper
     return decorator
 
@@ -616,6 +681,100 @@ def save_intermediate_data(
     except Exception as e:
         logger.error(f"Failed to save intermediate data {filename}: {e}")
         return False
+
+
+class AnalysisVisualizer:
+    """
+    Class-based approach for managing complex plotting state and data dependencies.
+    
+    This addresses scope issues by encapsulating data and methods together,
+    providing a robust framework for complex visualizations that require
+    multiple data sources and state management.
+    
+    Attributes:
+    -----------
+    data : pd.DataFrame
+        Primary analysis dataset
+    results_dict : dict
+        Dictionary containing analysis results
+    figures_created : list
+        List of figures created during analysis
+    config : dict
+        Configuration settings for visualizations
+        
+    Examples:
+    ---------
+    # Initialize with data and results
+    visualizer = AnalysisVisualizer(analysis_data, results_dict)
+    
+    # Create visualizations with encapsulated data
+    visualizer.plot_temporal_patterns()
+    visualizer.plot_correlations()
+    
+    # Get summary of work performed
+    summary = visualizer.get_analysis_summary()
+    """
+    
+    def __init__(self, data, results_dict=None, config=None):
+        """
+        Initialize the visualizer with data and configuration.
+        
+        Parameters:
+        -----------
+        data : pd.DataFrame
+            Primary analysis dataset
+        results_dict : dict, optional
+            Dictionary containing analysis results
+        config : dict, optional
+            Configuration settings for visualizations
+        """
+        self.data = data
+        self.results_dict = results_dict or {}
+        self.figures_created = []
+        self.config = config or {
+            'figsize': (12, 8),
+            'dpi': 300,
+            'format': 'png',
+            'style': 'default'
+        }
+    
+    @create_and_save_figure(filename='visualizer_demo', show_figure=True)
+    def plot_data_overview(self, ax=None):
+        """Example method showing encapsulated plotting"""
+        if ax is None:
+            import matplotlib.pyplot as plt
+            fig, ax = plt.subplots(figsize=self.config['figsize'])
+        
+        # Use self.data - no scope issues
+        if hasattr(self.data, 'columns') and 'POWER' in self.data.columns:
+            power_data = self.data['POWER'].dropna()
+            ax.hist(power_data, bins=50, alpha=0.7, edgecolor='black')
+            ax.set_xlabel('Power Generation (MW)')
+            ax.set_ylabel('Frequency')
+            ax.set_title('Power Generation Distribution')
+        else:
+            ax.text(0.5, 0.5, 'No power data available', 
+                   ha='center', va='center', transform=ax.transAxes)
+        
+        self.figures_created.append('data_overview')
+        return ax
+    
+    def add_results(self, key, results):
+        """Add analysis results to the results dictionary"""
+        self.results_dict[key] = results
+    
+    def get_analysis_summary(self):
+        """Return summary of analysis performed"""
+        return {
+            'data_shape': self.data.shape if hasattr(self.data, 'shape') else None,
+            'figures_created': self.figures_created,
+            'results_available': list(self.results_dict.keys()),
+            'config': self.config
+        }
+    
+    def update_config(self, **kwargs):
+        """Update visualization configuration"""
+        self.config.update(kwargs)
 
 
 # Initialize pyarrow on import
