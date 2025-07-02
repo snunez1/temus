@@ -57,6 +57,8 @@ graph TD
 | **11_mcp_service** | Production deployment | REST API, monitoring | 6-8 hours |
 | **12_business_impact** | Value quantification | ROI analysis, CO2 calculations | 2-3 hours |
 
+Notebooks 9-12 are incomplete.
+
 ## Technical Architecture
 
 ### Data Sources
