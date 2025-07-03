@@ -2,12 +2,12 @@
 <br />
 <p align="center">
   <a href="https://temus.com/">
-    <img src="https://temus.com/wp-content/uploads/2023/09/logo-white.svg" alt="Logo" width="80" height="80">
+    <img src="https://temus.com/wp-content/uploads/2023/09/logo-white.svg" alt="Logo" width="160" height="160">
   </a>
 
   <h3 align="center">Wind Power Forecasting</h3>
 
-  <p align="center">
+  <p>
 	A case study for 48-hour ahead wind power forecasting using the GEF2012 dataset, demonstrating measurable environmental and economic impact.
 	<br />
   </p>
@@ -15,7 +15,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#project-overview">Project Overview</a>
@@ -71,7 +71,7 @@ Deploy ensemble machine learning models with uncertainty quantification.  The mo
 This project is deployed as a VS Code workspace with a built in wind forecasting agent for interactive query of the data analysis. To [use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) ensure you have a Github Copilot plan (the free tier is fine).
 
 ### Run Online
-The easiest way to get started with this project is by using Github Codespaces. You can run the workspace in a local VS Code instance or a remotely in a web browser. To run on a remote codespace machine:
+The easiest way to get started with this project is by using [Github Codespaces](https://github.com/features/codespaces). You can run the workspace in a local VS Code instance or a remotely in a web browser. To run on a remote codespace machine:
 
 1. Clone this repo
 2. Follow the instructions for [Creating a codespace for a repository](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)
@@ -82,7 +82,7 @@ The easiest way to get started with this project is by using Github Codespaces. 
 The MCP tool will automatically start and be selected the first time you make a forecasting query.
 
 To ask the agent a question:
-   - [Start a conversation with the agent](https://code.visualstudio.com/docs/copilot/chat/getting-started-chat#_get-your-first-chat-conversation).
+   - [Start a conversation with the agent](https://code.visualstudio.com/docs/copilot/chat/getting-started-chat#_get-your-first-chat-conversation)
    - [Ensure you are in agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).  You can choose from multiple models. The Gemini-Pro model works well. Testing was done mainly with Claude Sonnet 4 and Gemini-Pro.
    - Try this question: "What are the power curve characteristics and capacity factor for wind farm wf3? Include the cut-in speed and rated power."
 
@@ -96,14 +96,12 @@ Some other questions you might want to try:
 * Which are the top 15 most important features for the XGBoost model? Show the breakdown by forecast horizon.
 * Diagnose extreme event forecast errors for wind farm wf5 during winter periods. What patterns do you find?
 
-[!Warning] Be careful!  Sometimes the agent will detect that the notebook is in-progress and can't answer and then go off and start implementing the analysis within the notebook.
+> [!Warning] 
+> Be careful!  Sometimes the agent will detect that the notebook is in-progress and can't answer and then go off and start implementing the analysis within the notebook.
 
 ### See the Agent in Action
 This video demos the agent answering the questions above.
-<video width="100%" controls>
-  <source src="https://github.com/snunez1/temus/releases/download/v1.0.0/Forecasting-agent-recording.mp4" type="video/mp4">
-  Your browser does not support the video tag. <a href="https://github.com/snunez1/temus/releases/download/v1.0.0/Forecasting-agent-recording.mp4">Download the demo video</a>
-</video>
+https://github.com/snunez1/temus/releases/download/v1.0.0/Forecasting-agent-recording.mp4
 
 
 ### Run Locally
@@ -119,7 +117,7 @@ If you have Docker installed then the project should automatically configure and
 This project uses Claude-optimized prompts for consistent analysis:
 
 - **Core Context**: Automatic loading of domain knowledge and requirements
-- **Workflow Guidance**: Phase-specific prompts via `#file:` command
+- **Workflow Guidance**: Phase-specific prompts via `#file:` variable
 - **Quality Assurance**: Built-in validation and best practices
 
 See `.github/prompts/README.md` for prompt system documentation.
@@ -141,7 +139,7 @@ The system guides LLMs to:
 
 #### Key Benefits
 * Zero code changes: Notebooks remain untouched
-* Immediate access to new data: No need to deploy the notebooks
+* Immediate access to new data/models: No need to deploy remotely
 * Flexible Q&A: Handles unexpected questions
 * Business narrative: Explains the "why" behind analyses
 
@@ -180,7 +178,8 @@ graph TD
     style J fill:#f3e5f5
 ```
 
-[!Note] These notebooks were developed on a resource constrained machine lacking a GPU. They will run slowly.
+> [!Note]
+> These notebooks were developed on a resource constrained machine lacking a GPU. They will run slowly.
 
 
 ### Notebook Structure & Status
@@ -256,30 +255,30 @@ temus/
 - Error cost: $18/MWh (industry estimate for balancing/imbalance penalties)
 - Total cost: 2,628,000 MWh × $18/MWh ≈ $47M
 
-Supporting literature: NREL, "The Cost of Wind Power Variability" (Energy Policy Journal); Hodge et al., "Wind Power Forecasting Error Costs in Electricity Markets" (IEEE Transactions); IRENA reports on wind integration costs.
+    Supporting literature: NREL, "The Cost of Wind Power Variability" (Energy Policy Journal); Hodge et al., "Wind Power Forecasting Error Costs in Electricity Markets" (IEEE Transactions); IRENA reports on wind integration costs.
 
 [^2]: **Expected Impact Calculations:**
 
-**Environmental (12,000 tons CO₂ reduction annually):**
-- Wind farm capacity: 150 MW × 30% capacity factor × 8,760 hours = 394,200 MWh/year
-- CO₂ displaced: 394,200 MWh × 0.6 tons CO₂/MWh = 236,520 tons CO₂/year
-- Forecasting improvement reduces fossil backup by 5%: 236,520 × 5% ≈ 12,000 tons CO₂
+    **Environmental (12,000 tons CO₂ reduction annually):**
+    - Wind farm capacity: 150 MW × 30% capacity factor × 8,760 hours = 394,200 MWh/year
+    - CO₂ displaced: 394,200 MWh × 0.6 tons CO₂/MWh = 236,520 tons CO₂/year
+    - Forecasting improvement reduces fossil backup by 5%: 236,520 × 5% ≈ 12,000 tons CO₂
 
-**Economic ($1.8M cost savings per wind farm per year):**
-- Annual generation: 394,200 MWh/year
-- Forecast error cost: $12/MWh (industry benchmark)
-- Total error cost: 394,200 × $12 = $4.73M/year
-- 35% improvement from better forecasting: $4.73M × 35% ≈ $1.8M savings
+    **Economic ($1.8M cost savings per wind farm per year):**
+    - Annual generation: 394,200 MWh/year
+    - Forecast error cost: $12/MWh (industry benchmark)
+    - Total error cost: 394,200 × $12 = $4.73M/year
+    - 35% improvement from better forecasting: $4.73M × 35% ≈ $1.8M savings
 
-**Operational (15% higher renewable penetration):**
-- Industry studies show 0.3-0.5% renewable penetration increase per 1% forecast accuracy improvement
-- Target 30-40% accuracy improvement enables 9-20% higher penetration
-- Conservative estimate: 15% increase
+    **Operational (15% higher renewable penetration):**
+    - Industry studies show 0.3-0.5% renewable penetration increase per 1% forecast accuracy improvement
+    - Target 30-40% accuracy improvement enables 9-20% higher penetration
+    - Conservative estimate: 15% increase
 
-| Impact Assumption | Benchmark | Source |
-|------------------|-----------|---------|
-| CO₂ emissions displaced | 0.4-1.0 tons CO₂/MWh | EPA Emission Factors |
-| Fossil backup reduction | 3-8% from improved forecasting | NREL Wind Forecasting Improvement Project |
-| Forecast error cost | $5-$20/MWh | Hodge et al. (2012), IEEE Transactions |
-| Accuracy improvement potential | 20-40% over baseline | NREL WFIP Final Report |
-| Renewable penetration increase | 0.3-0.5% per 1% accuracy gain | IRENA Innovation Brief (2019) |
+    | Impact Assumption | Benchmark | Source |
+    |------------------|-----------|---------|
+    | CO₂ emissions displaced | 0.4-1.0 tons CO₂/MWh | EPA Emission Factors |
+    | Fossil backup reduction | 3-8% from improved forecasting | NREL Wind Forecasting Improvement Project |
+    | Forecast error cost | $5-$20/MWh | Hodge et al. (2012), IEEE Transactions |
+    | Accuracy improvement potential | 20-40% over baseline | NREL WFIP Final Report |
+    | Renewable penetration increase | 0.3-0.5% per 1% accuracy gain | IRENA Innovation Brief (2019) |
