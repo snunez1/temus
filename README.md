@@ -57,15 +57,16 @@
 This case study demonstrates how to identify, develop and deploy machine learning applications to solve real-world problems and deliver tangible benefits.
 
 ### Business Challenge
-Grid operators need accurate wind power forecasts to maintain stability while maximizing renewable energy integration. Current forecasting errors cost $47M annually across the target wind portfolio and force unnecessary fossil fuel backup generation.[^1]
+Grid operators need accurate wind power forecasts to maintain stability while maximizing renewable energy integration. Current [forecasting errors cost $47M annually](#estimation-basis-for-47m-annual-cost-of-wind-forecasting-errors) across the target wind portfolio and force unnecessary fossil fuel backup generation.
 
 ### Solution Approach
 Deploy ensemble machine learning models with uncertainty quantification.  The models may be queried via an AI agent that uses a Model Context Protocol (MCP) service.
 
-### Expected Impact[^2]
+### Expected Impact ([details](#expected-impact-calculations))
 - **Environmental**: 12,000 tons CO2 reduction annually
 - **Economic**: $1.8M cost savings per wind farm per year
 - **Operational**: Enable 15% higher renewable penetration in grid
+
 
 ## Getting Started
 This project is deployed as a VS Code workspace with a built in wind forecasting agent for interactive query of the data analysis. To [use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) ensure you have a Github Copilot plan (the free tier is fine).
@@ -249,42 +250,39 @@ temus/
 - ✅ **Connection details of the MCP service you developed for this exercise** (above)
 - ✅ **LLM chat log and any additional tools or services required to replicate your work** (above)
 
+## References and Calculations
 
-&nbsp;
-
-&nbsp;
-
-[^1]: **Estimation basis for $47M annual cost of wind forecasting errors:**
+### Estimation basis for $47M annual cost of wind forecasting errors
 - Portfolio size: 7 wind farms × ~150 MW each = ~1,000 MW total
 - Capacity factor: ~30% (typical for onshore wind)
 - Annual generation: 1,000 MW × 0.30 × 8,760 hours = 2,628 GWh
 - Error cost: $18/MWh (industry estimate for balancing/imbalance penalties)
 - Total cost: 2,628,000 MWh × $18/MWh ≈ $47M
 
-    Supporting literature: NREL, "The Cost of Wind Power Variability" (Energy Policy Journal); Hodge et al., "Wind Power Forecasting Error Costs in Electricity Markets" (IEEE Transactions); IRENA reports on wind integration costs.
+Supporting literature: NREL, "The Cost of Wind Power Variability" (Energy Policy Journal); Hodge et al., "Wind Power Forecasting Error Costs in Electricity Markets" (IEEE Transactions); IRENA reports on wind integration costs.
 
-[^2]: **Expected Impact Calculations:**
+### Expected Impact Calculations
 
-    **Environmental (12,000 tons CO₂ reduction annually):**
-    - Wind farm capacity: 150 MW × 30% capacity factor × 8,760 hours = 394,200 MWh/year
-    - CO₂ displaced: 394,200 MWh × 0.6 tons CO₂/MWh = 236,520 tons CO₂/year
-    - Forecasting improvement reduces fossil backup by 5%: 236,520 × 5% ≈ 12,000 tons CO₂
+**Environmental (12,000 tons CO₂ reduction annually):**
+- Wind farm capacity: 150 MW × 30% capacity factor × 8,760 hours = 394,200 MWh/year
+- CO₂ displaced: 394,200 MWh × 0.6 tons CO₂/MWh = 236,520 tons CO₂/year
+- Forecasting improvement reduces fossil backup by 5%: 236,520 × 5% ≈ 12,000 tons CO₂
 
-    **Economic ($1.8M cost savings per wind farm per year):**
-    - Annual generation: 394,200 MWh/year
-    - Forecast error cost: $12/MWh (industry benchmark)
-    - Total error cost: 394,200 × $12 = $4.73M/year
-    - 35% improvement from better forecasting: $4.73M × 35% ≈ $1.8M savings
+**Economic ($1.8M cost savings per wind farm per year):**
+- Annual generation: 394,200 MWh/year
+- Forecast error cost: $12/MWh (industry benchmark)
+- Total error cost: 394,200 × $12 = $4.73M/year
+- 35% improvement from better forecasting: $4.73M × 35% ≈ $1.8M savings
 
-    **Operational (15% higher renewable penetration):**
-    - Industry studies show 0.3-0.5% renewable penetration increase per 1% forecast accuracy improvement
-    - Target 30-40% accuracy improvement enables 9-20% higher penetration
-    - Conservative estimate: 15% increase
+**Operational (15% higher renewable penetration):**
+- Industry studies show 0.3-0.5% renewable penetration increase per 1% forecast accuracy improvement
+- Target 30-40% accuracy improvement enables 9-20% higher penetration
+- Conservative estimate: 15% increase
 
-    | Impact Assumption | Benchmark | Source |
-    |------------------|-----------|---------|
-    | CO₂ emissions displaced | 0.4-1.0 tons CO₂/MWh | EPA Emission Factors |
-    | Fossil backup reduction | 3-8% from improved forecasting | NREL Wind Forecasting Improvement Project |
-    | Forecast error cost | $5-$20/MWh | Hodge et al. (2012), IEEE Transactions |
-    | Accuracy improvement potential | 20-40% over baseline | NREL WFIP Final Report |
-    | Renewable penetration increase | 0.3-0.5% per 1% accuracy gain | IRENA Innovation Brief (2019) |
+| Impact Assumption | Benchmark | Source |
+|------------------|-----------|---------|
+| CO₂ emissions displaced | 0.4-1.0 tons CO₂/MWh | EPA Emission Factors |
+| Fossil backup reduction | 3-8% from improved forecasting | NREL Wind Forecasting Improvement Project |
+| Forecast error cost | $5-$20/MWh | Hodge et al. (2012), IEEE Transactions |
+| Accuracy improvement potential | 20-40% over baseline | NREL WFIP Final Report |
+| Renewable penetration increase | 0.3-0.5% per 1% accuracy gain | IRENA Innovation Brief (2019) |
