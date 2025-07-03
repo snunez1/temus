@@ -99,8 +99,9 @@ Some other questions you might want to try:
 > [!Warning] 
 > Be careful!  Sometimes the agent will detect that the notebook is in-progress and can't answer and then go off and start implementing the analysis within the notebook.
 
-### See the Agent in Action
+### The Agent in Action
 This video demos the agent answering the questions above.
+
 https://github.com/snunez1/temus/releases/download/v1.0.0/Forecasting-agent-recording.mp4
 
 
