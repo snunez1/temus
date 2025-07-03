@@ -250,7 +250,6 @@ temus/
 - ✅ **LLM chat log and any additional tools or services required to replicate your work** (above)
 
 
----
 
 [^1]: **Estimation basis for $47M annual cost of wind forecasting errors:**
 - Portfolio size: 7 wind farms × ~150 MW each = ~1,000 MW total
