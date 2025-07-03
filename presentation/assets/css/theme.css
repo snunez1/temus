@@ -1,0 +1,174 @@
+/* McKinsey-style theme for Reveal.js */
+
+/* Import base theme */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* Global styles */
+.reveal {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #222;
+}
+
+/* Headers */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    margin-bottom: 0.5em;
+}
+
+.reveal h1 {
+    font-size: 2.2em;
+    color: #003A70; /* McKinsey blue */
+}
+
+.reveal h2 {
+    font-size: 1.6em;
+    color: #003A70;
+}
+
+.reveal h3 {
+    font-size: 1.3em;
+    color: #333;
+}
+
+/* Title slide */
+.reveal .title-slide h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+}
+
+.reveal .title-slide h2 {
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #666;
+}
+
+.reveal .subtitle {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 2em;
+}
+
+/* Content */
+.reveal .slides section {
+    text-align: left;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2 {
+    text-align: center;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+    display: block;
+    margin-left: 1em;
+}
+
+.reveal li {
+    margin-bottom: 0.5em;
+}
+
+/* Strong text */
+.reveal strong {
+    color: #003A70;
+    font-weight: 600;
+}
+
+/* Images */
+.reveal section img {
+    border: none;
+    box-shadow: none;
+    max-height: 500px;
+}
+
+/* Two-column layout */
+.reveal .columns {
+    display: flex;
+    gap: 40px;
+}
+
+.reveal .column {
+    flex: 1;
+}
+
+/* Stats grid */
+.reveal .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.reveal .stat-box {
+    background: #f8f8f8;
+    padding: 30px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.reveal .stat-box h3 {
+    font-size: 2.5em;
+    color: #003A70;
+    margin: 0;
+}
+
+.reveal .stat-box p {
+    margin: 10px 0 0 0;
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Tables */
+.reveal table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.reveal table th {
+    background-color: #003A70;
+    color: white;
+    font-weight: 600;
+    padding: 0.5em 1em;
+}
+
+.reveal table td {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Code blocks */
+.reveal pre {
+    box-shadow: none;
+    font-size: 0.7em;
+}
+
+/* Progress bar */
+.reveal .progress {
+    color: #003A70;
+    height: 3px;
+}
+
+/* Navigation controls */
+.reveal .controls {
+    color: #003A70;
+}
+
+/* Slide numbers */
+.reveal .slide-number {
+    font-size: 0.6em;
+    color: #666;
+}
+
+/* Print styles */
+@media print {
+    .reveal .slides section {
+        page-break-after: always !important;
+    }
+}

@@ -21,5 +21,37 @@
     }
   ],
   "chat.mcp.enabled": true,
-  "chat.mcp.discovery.enabled": true
+  "chat.mcp.discovery.enabled": true,
+  // Presentation development settings
+  "livePreview.defaultPreviewPath": "/presentation/index.html",
+  "livePreview.portNumber": 3000,
+  "livePreview.showStatusBarItem": true,
+  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.CustomBrowser": "chrome",
+  // Editor settings for markdown
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  // File associations
+  "files.associations": {
+    "*.md": "markdown"
+  },
+  // Spell checker words for presentation content
+  "cSpell.words": [
+    "Temus",
+    "Temasek",
+    "McKinsey",
+    "RMSE",
+    "XGBoost",
+    "LSTM",
+    "MCP",
+    "decarbonization",
+    "GEF2012",
+    "Kubernetes",
+    "Grafana",
+    "Prometheus",
+    "revealjs"
+  ]
 }

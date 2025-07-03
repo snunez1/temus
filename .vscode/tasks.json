@@ -1,0 +1,99 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Presentation",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "presentation/scripts/concat-sections.py"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Open Presentation in Simple Browser",
+      "type": "shell",
+      "command": "code",
+      "args": [
+        "--command",
+        "simpleBrowser.show",
+        "http://localhost:3000/presentation/index.html"
+      ],
+      "problemMatcher": [],
+      "dependsOn": [
+        "Build Presentation"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "silent"
+      },
+      "group": "build"
+    },
+    {
+      "label": "Watch Presentation Sections",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "presentation/scripts/watch-sections.py"
+      ],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Start Presentation Live Preview",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "Opening Live Preview for presentation..."
+      ],
+      "problemMatcher": [],
+      "dependsOn": [
+        "Build Presentation"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "MCP Server Start",
+      "type": "shell",
+      "command": "./start_server.sh",
+      "isBackground": true,
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/mcp"
+      }
+    }
+  ]
+}
